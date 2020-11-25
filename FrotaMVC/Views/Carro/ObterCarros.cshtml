@@ -1,0 +1,50 @@
+﻿@model IEnumerable<FrotaMVC.Models.Carros>
+
+<p>
+    @Html.ActionLink("Adicionar Novo Carro", "IncluirCarro")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IdCarro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Marca)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Modelo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AnoFabric)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdCarro)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Marca)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Modelo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AnoFabric)
+        </td>
+        <td>
+            @Html.ActionLink("Alterar", "EditarCarro", new { id=item.IdCarro }) |
+            @Html.ActionLink("Excluir", "ExcluirCarro", new {  id=item.IdCarro })
+        </td>
+    </tr>
+}
+
+</table>
